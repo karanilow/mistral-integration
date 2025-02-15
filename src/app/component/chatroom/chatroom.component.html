@@ -1,1 +1,8 @@
-<p>chatroom works!</p>
+<div>
+    <div *ngFor="let message of messages">
+        <div class="row">
+            <div *ngIf="message.author === 'user'" class="col-lg-6"></div>
+            <app-message [message]="message"></app-message>
+        </div>
+    </div>
+</div>
