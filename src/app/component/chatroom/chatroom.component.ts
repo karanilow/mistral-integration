@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageComponent } from "../message/message.component";
 import { CommonModule } from '@angular/common';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export interface Message {
   message: string,
@@ -9,7 +10,7 @@ export interface Message {
 
 @Component({
   selector: 'app-chatroom',
-  imports: [MessageComponent, CommonModule],
+  imports: [MessageComponent, CommonModule, MatSlideToggleModule],
   templateUrl: './chatroom.component.html',
   styleUrl: './chatroom.component.scss'
 })
