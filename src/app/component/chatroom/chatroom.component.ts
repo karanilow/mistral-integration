@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MessageComponent } from "../message/message.component";
 import { CommonModule } from '@angular/common';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 export interface Message {
   message: string,
@@ -10,7 +11,10 @@ export interface Message {
 
 @Component({
   selector: 'app-chatroom',
-  imports: [MessageComponent, CommonModule, MatSlideToggleModule],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ],
+  imports: [MessageComponent, CommonModule, MatFormFieldModule, MatInputModule],
   templateUrl: './chatroom.component.html',
   styleUrl: './chatroom.component.scss'
 })
