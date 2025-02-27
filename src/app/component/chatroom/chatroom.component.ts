@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { MistralApiService } from '../../services/mistral-api.service';
 
 export interface Message {
   message: string,
@@ -28,4 +29,12 @@ export class ChatroomComponent {
     {message : "message 4", author : "llm"},
     {message : "message 3", author : "user"}
   ]
+
+  constructor(private mistral: MistralApiService){}
+
+  public async prepareResponse() {
+    this.messages
+    const response = await this.mistral.getMistralResponse("Quel est le meilleur fromage ?")
+    this.messages.push({author: "llm", message: response});
+  }
 }
