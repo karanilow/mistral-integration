@@ -1,22 +1,26 @@
-<div>
-    <div *ngFor="let message of messages">
-        <div class="row">
-            <div *ngIf="message.author === 'user'" class="col-lg-4"></div>
-            <div class="col-lg-8">
-                <app-message [message]="message"></app-message>
+<div *ngIf="messages.length > 1" class="center-messages">
+    <div>
+        <div *ngFor="let message of messages">
+            <div class="row">
+                <div *ngIf="message.author === 'user'" class="col-lg-4"></div>
+                <div class="col-lg-8">
+                    <app-message [message]="message"></app-message>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<mat-card appearance="outlined">
-    <mat-card-content>
-        <mat-form-field>
-            <textarea matInput [formControl]="questionInput" placeholder="Ask Le Chat"></textarea>
-        </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions align="end">
-        <button mat-mini-fab aria-label="Submit text to the LLM." (click)="prepareResponse()">
-            <mat-icon>arrow_upward</mat-icon>
-        </button>
-    </mat-card-actions>
-</mat-card>
+<div class="center-card" id="chat-input">
+    <mat-card appearance="outlined">
+        <mat-card-content>
+            <mat-form-field>
+                <textarea matInput [formControl]="questionInput" placeholder="Ask Le Chat"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-mini-fab aria-label="Submit text to the LLM." (click)="prepareResponse()">
+                <mat-icon>arrow_upward</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
