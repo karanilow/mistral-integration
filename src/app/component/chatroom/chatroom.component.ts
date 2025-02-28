@@ -39,13 +39,7 @@ export interface Message {
   styleUrl: './chatroom.component.scss',
 })
 export class ChatroomComponent {
-  public messages: Message[] = [
-    { message: 'message 1', author: 'user' },
-    { message: 'message 2', author: 'llm' },
-    { message: 'message 3', author: 'user' },
-    { message: 'message 4', author: 'llm' },
-    { message: 'message 3', author: 'user' },
-  ];
+  public messages: Message[] = [];
 
   public questionInput = new FormControl('');
 
