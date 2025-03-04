@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { MessageComponent } from '../message/message.component';
 import { CommonModule } from '@angular/common';
 import {
@@ -44,6 +44,13 @@ export class ChatroomComponent {
   public questionInput = new FormControl('');
 
   constructor(private mistral: MistralApiService) {}
+
+  // Behiour of submitting the question on pressing enter key
+  @HostListener('document:keydown.enter', ['$event'])
+  handleEnterKey(event: KeyboardEvent) {
+    event.preventDefault();
+    this.prepareResponse();
+  }
 
   public async prepareResponse() {
     if(!this.questionInput.value){
