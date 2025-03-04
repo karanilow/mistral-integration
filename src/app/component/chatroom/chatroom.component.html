@@ -2,8 +2,9 @@
     <div>
         <div *ngFor="let message of messages">
             <div class="row">
-                <div *ngIf="message.author === 'user'" class="col-md-5"></div>
-                <div class="col-md-7">
+                <div *ngIf="message.author === 'user'" class="col-md-4"></div>
+                <div *ngIf="message.author === 'llm'" class="col-md-2"></div>
+                <div class="col-md-6">
                     <app-message [message]="message"></app-message>
                 </div>
             </div>
