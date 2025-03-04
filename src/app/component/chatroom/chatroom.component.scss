@@ -9,3 +9,19 @@
     display: flex;
     justify-content: center;
 }
+
+.row {
+    margin-bottom: 30px;
+}
+
+mat-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 10px;
+}
+
+
+mat-form-field {
+    width: 100%;
+    max-width: 600px;
+}
