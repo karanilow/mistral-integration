@@ -56,7 +56,7 @@ export interface Message {
       state(
         'closed',
         style({
-          height: '0px'
+          height: '200px'
         }),
       ),
       transition('open => closed', [animate('1s')]),
