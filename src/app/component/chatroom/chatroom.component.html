@@ -1,4 +1,4 @@
-<div *ngIf="messages.length > 1" class="center-messages">
+<div class="center-messages" [@openClose]="isOpen ? 'open' : 'closed'">
     <div>
         <div *ngFor="let message of messages">
             <div class="row">
