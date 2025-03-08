@@ -85,7 +85,9 @@ export class ChatroomComponent {
     const question = this.questionInput.value;
     this.questionInput = new FormControl('');
     this.messages.push({ author: 'user', message: question });
+    this.messages.push({ author: 'llm', message: 'I am thinking...' });
     const response = await this.mistral.getMistralResponse(question);
+    this.messages.pop();
     this.messages.push({ author: 'llm', message: response });
   }
 }
