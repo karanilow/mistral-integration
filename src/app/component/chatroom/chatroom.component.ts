@@ -19,7 +19,7 @@ import {
   transition
 } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
-import { ProfilePictureDialogComponent } from '../../profile-picture-dialog/profile-picture-dialog.component';
+import { ProfilePictureDialogComponent } from '../profile-picture-dialog/profile-picture-dialog.component';
 
 
 export interface Message {
