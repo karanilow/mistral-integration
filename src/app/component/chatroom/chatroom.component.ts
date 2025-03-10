@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, effect, HostListener, inject, signal } from '@angular/core';
 import { MessageComponent } from '../message/message.component';
 import { CommonModule } from '@angular/common';
 import {
@@ -70,6 +70,7 @@ export class ChatroomComponent {
   public isOpen = false;
   public questionInput = new FormControl('');
   readonly dialog = inject(MatDialog);
+  public profilePictureSrc!: string;
 
   constructor(private mistral: MistralApiService) {
     this.openDialog();
@@ -98,5 +99,9 @@ export class ChatroomComponent {
 
   openDialog() {
     let dialogRef = this.dialog.open(ProfilePictureDialogComponent);
+    
+    dialogRef.afterClosed().subscribe(profilePictureSrc => {
+      this.profilePictureSrc = profilePictureSrc;
+    });
   }
 }

@@ -8,4 +8,9 @@
                 (click)="selectProfilePicture(picture)">
         </div>
     </div>
+    <br>
 </mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="selectedProfilePicture.src" cdkFocusInitial>Confirm</button>
+  </mat-dialog-actions>

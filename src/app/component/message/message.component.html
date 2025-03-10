@@ -1,7 +1,6 @@
 <div class="row">
     <div *ngIf="message.author === 'llm'" class="col-md-2">
-        <img src="assets/robot.png" class="img-fluid" alt="Owner Picture"
-            style="border-radius: 50%; width: 50px; height: 50px;">
+        <img src="assets/robot.png" class="img-fluid profile" alt="Robot Picture">
     </div>
     <div class="col-md-10">
         <mat-card>
@@ -13,6 +12,6 @@
         </mat-card>
     </div>
     <div *ngIf="message.author === 'user'" class="col-md-2">
-
+        <img src="assets/{{profilePictureSrc}}" class="img-fluid profile" alt="Human Picture">
     </div>
 </div>

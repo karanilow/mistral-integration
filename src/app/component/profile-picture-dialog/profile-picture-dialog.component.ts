@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import {
   MatDialogTitle,
   MatDialogContent,
+  MatDialogModule
 } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 interface ProfilePicture{
   src: string;
@@ -12,7 +14,7 @@ interface ProfilePicture{
 
 @Component({
   selector: 'app-profile-picture-dialog',
-  imports: [MatDialogTitle, MatDialogContent, CommonModule],
+  imports: [MatDialogTitle, MatDialogContent, CommonModule, MatDialogModule, MatButtonModule],
   templateUrl: './profile-picture-dialog.component.html',
   styleUrl: './profile-picture-dialog.component.scss'
 })

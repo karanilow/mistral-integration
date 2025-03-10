@@ -14,4 +14,5 @@ import { MarkdownModule } from 'ngx-markdown';
 })
 export class MessageComponent {
   @Input() public message!: Message;
+  @Input() public profilePictureSrc!: string;
 }
