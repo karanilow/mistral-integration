@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { MessageComponent } from '../message/message.component';
 import { CommonModule } from '@angular/common';
 import {
@@ -18,6 +18,8 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfilePictureDialogComponent } from '../../profile-picture-dialog/profile-picture-dialog.component';
 
 
 export interface Message {
@@ -67,8 +69,11 @@ export class ChatroomComponent {
   public messages: Message[] = [];
   public isOpen = false;
   public questionInput = new FormControl('');
+  readonly dialog = inject(MatDialog);
 
-  constructor(private mistral: MistralApiService) {}
+  constructor(private mistral: MistralApiService) {
+    this.openDialog();
+  }
 
   // Behiour of submitting the question on pressing enter key
   @HostListener('document:keydown.enter', ['$event'])
@@ -89,5 +94,9 @@ export class ChatroomComponent {
     const response = await this.mistral.getMistralResponse(question);
     this.messages.pop();
     this.messages.push({ author: 'llm', message: response });
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(ProfilePictureDialogComponent);
   }
 }
