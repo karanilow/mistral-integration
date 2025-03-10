@@ -1,9 +1,11 @@
 <h2 mat-dialog-title>Select a profile picture</h2>
 <mat-dialog-content>
+    <br>
     <div class="row">
-        <div class="col-md-3" *ngFor="let picture of profilePictures">
-            <img src="assets/{{ picture }}" alt="Profile picture"
-                style="border-radius: 50%; width: 50px; height: 50px;">
+        <div class="col-md-3" *ngFor="let picture of profilePictureList">
+            <img class="profile" [class.isSelected]="picture.isSelected" 
+            src="assets/{{ picture.src }}" alt="Profile picture"
+                (click)="selectProfilePicture(picture)">
         </div>
     </div>
 </mat-dialog-content>
